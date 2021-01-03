@@ -11,7 +11,8 @@ public static class EventManager
     public static bool PickedUpPhone1 = false; //True when read the Fix Faucet message
     public static bool TurnedOfFaucet1 = false; //True when turned the faucet of the first time
     public static bool PickedUpPhone2 = false; //True when read the See Documentary message
-    public static bool TurnedOnTelevision = false; //True when the Documentary is turned on. Faucet needs to start leaking again. Silhouette in bathroom appears.
+    public static bool TurnedOnTelevision = false; //True when the Documentary is turned on. Faucet needs to start leaking again after X seconds. Silhouette in bathroom appears.
+    public static bool TurnedOfFaucet2 = false; //True when faucet is turned of for the second time, afterwards needs to randomly start making the noise in 1 ear.
     public static bool InteractedWithBathroomHandle = false; //True when Interacted with bathroomhandle AFTER silhouette starts appearing
     public static bool PickedUpPhone3 = false; //True when the Check Neighbours/FrontDoor message is read. This + Playerlocation starts audio behind the door and next flag 
     public static bool HeardNeighbours = false; //True X seconds after the neighbour audio clip started playing. Triggers new phone message
