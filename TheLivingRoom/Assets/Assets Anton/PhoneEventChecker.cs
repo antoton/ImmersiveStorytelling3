@@ -9,16 +9,18 @@ public class PhoneEventChecker : MonoBehaviour
     public GameObject Phone;
     public Renderer PhoneScreen;
     public Material DocuMessage;
-    public bool SendDocuMessage = false;
+    public Material BathroomMessage;
+    public bool SentDocuMessage = false;
+    bool SentBathroomMessage;
     public Behaviour StartBuzzingScript;
     float timer = 0;
 
     // Update is called once per frame
     void Update()
     {
-        if(EventManager.TurnedOfFaucet1 == true && SendDocuMessage == false)
+        if(EventManager.TurnedOfFaucet1 == true && SentDocuMessage == false)
         {
-            SendDocuMessage = true;
+            SentDocuMessage = true;
             Material[] newMaterials = { PhoneScreen.materials[0], DocuMessage };
             PhoneScreen.materials = newMaterials;
             StartBuzzingScript.enabled = true;
@@ -27,7 +29,10 @@ public class PhoneEventChecker : MonoBehaviour
         {
             ResendMessage(60f);
         }
+        if (EventManager.TurnedOnTelevision == true && SentBathroomMessage == false)
+        {
 
+        }
 
 
 
