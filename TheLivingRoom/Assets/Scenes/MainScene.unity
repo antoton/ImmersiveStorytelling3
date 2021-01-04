@@ -810,7 +810,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15632
+  m_Name: pb_Mesh16024
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2008,7 +2008,18 @@ MonoBehaviour:
       m_Calls: []
   m_OnSelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5560905291349613039}
+        m_MethodName: DisableBuzz
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -7086,6 +7097,8 @@ GameObject:
   - component: {fileID: 5560905291349613036}
   - component: {fileID: 5560905291349613038}
   - component: {fileID: 5560905291349613037}
+  - component: {fileID: 5560905291349613039}
+  - component: {fileID: 5560905291349613040}
   m_Layer: 0
   m_Name: phone1k
   m_TagString: Untagged
@@ -7219,6 +7232,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 5560905291349613036}
+--- !u!114 &5560905291349613039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5560905291349613035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c8ed675b5b9d34ea2786820fe44b40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Phone: {fileID: 5560905291349613035}
+  audioSource: {fileID: 0}
+--- !u!114 &5560905291349613040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5560905291349613035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01c51b6f46de9546ab187ae4684040d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Phone: {fileID: 0}
+  PhoneScreen: {fileID: 2633749899807701563}
+  DocuMessage: {fileID: 2100000, guid: eebca563e27602d44a224685f5c59850, type: 2}
+  SendDocuMessage: 0
+  StartBuzzingScript: {fileID: 5560905291349613037}
 --- !u!23 &5572018510397145509
 MeshRenderer:
   m_ObjectHideFlags: 0
