@@ -22,4 +22,16 @@ public static class EventManager
     //Always make sure that your script always checked if it has already run as well, to make sure it doesn't start looping for no reason. 
     #endregion
 
+    public static void PickUpPhone1()
+    {
+        PickedUpPhone1 = true;
+    }
+    public static void TurnOfFaucet1()
+    {
+        TurnedOfFaucet1 = true;
+    }
+    public static void PickUpPhone2()
+    {
+        PickedUpPhone2 = true;
+    }
 }
