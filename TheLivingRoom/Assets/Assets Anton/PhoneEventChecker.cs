@@ -8,17 +8,33 @@ public class PhoneEventChecker : MonoBehaviour
     // Start is called before the first frame update
     public GameObject Phone;
     public Renderer PhoneScreen;
+    public Material FirstMessage;
     public Material DocuMessage;
     public Material BathroomMessage;
+    public Material NeighboursMessage;
+    public Material WindowMessage;
+
     public bool SentDocuMessage = false;
+    bool firstMessageSet = false;
     bool SentBathroomMessage = false;
     bool WaitForBathroomMessage = false;
+    bool SentNeighboursMessage = false;
+    bool SentWindowMessage = false;
+
     public Behaviour StartBuzzingScript;
     float timer = 0;
 
     // Update is called once per frame
     void Update()
     {
+        if(EventManager.FirstMessageSent == true && firstMessageSet == false)
+        {
+            firstMessageSet = true;
+            Material[] newMaterials = { PhoneScreen.materials[0], FirstMessage };
+            PhoneScreen.materials = newMaterials;
+            StartBuzzingScript.enabled = true;
+        }
+
         if(EventManager.TurnedOfFaucet1 == true && SentDocuMessage == false)
         {
             SentDocuMessage = true;
@@ -35,7 +51,7 @@ public class PhoneEventChecker : MonoBehaviour
             timer = 0;
             WaitForBathroomMessage = true;
         }
-        if (WaitForBathroomMessage)
+        if (WaitForBathroomMessage == true && SentBathroomMessage == false)
         {
             timer += Time.deltaTime;
             if (timer >= 60f)
@@ -47,7 +63,20 @@ public class PhoneEventChecker : MonoBehaviour
                 StartBuzzingScript.enabled = true;
             }
         }
-
+        if (EventManager.InteractedWithBathroomHandle == true && SentNeighboursMessage == false)
+        {
+            SentNeighboursMessage = true;
+            Material[] newMaterials = { PhoneScreen.materials[0], NeighboursMessage };
+            PhoneScreen.materials = newMaterials;
+            StartBuzzingScript.enabled = true;
+        }
+        if (EventManager.HeardNeighbours == true && SentWindowMessage == false)
+        {
+            SentWindowMessage = true;
+            Material[] newMaterials = { PhoneScreen.materials[0], WindowMessage };
+            PhoneScreen.materials = newMaterials;
+            StartBuzzingScript.enabled = true;
+        }
 
 
 
