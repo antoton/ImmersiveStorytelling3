@@ -11,7 +11,8 @@ public class PhoneEventChecker : MonoBehaviour
     public Material DocuMessage;
     public Material BathroomMessage;
     public bool SentDocuMessage = false;
-    bool SentBathroomMessage;
+    bool SentBathroomMessage = false;
+    bool WaitForBathroomMessage = false;
     public Behaviour StartBuzzingScript;
     float timer = 0;
 
@@ -29,11 +30,23 @@ public class PhoneEventChecker : MonoBehaviour
         {
             ResendMessage(60f);
         }
-        if (EventManager.TurnedOnTelevision == true && SentBathroomMessage == false)
+        if (EventManager.TurnedOnTelevision == true && WaitForBathroomMessage == false)
         {
-
+            timer = 0;
+            WaitForBathroomMessage = true;
         }
-
+        if (WaitForBathroomMessage)
+        {
+            timer += Time.deltaTime;
+            if (timer >= 60f)
+            {
+                SentBathroomMessage = true;
+                WaitForBathroomMessage = false;
+                Material[] newMaterials = { PhoneScreen.materials[0], BathroomMessage };
+                PhoneScreen.materials = newMaterials;
+                StartBuzzingScript.enabled = true;
+            }
+        }
 
 
 
