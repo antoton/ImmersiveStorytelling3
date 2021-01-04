@@ -6984,6 +6984,7 @@ GameObject:
   - component: {fileID: 5560905291349613038}
   - component: {fileID: 5560905291349613037}
   - component: {fileID: 5560905291349613039}
+  - component: {fileID: 5560905291349613040}
   m_Layer: 0
   m_Name: phone1k
   m_TagString: Untagged
@@ -7130,6 +7131,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Phone: {fileID: 5560905291349613035}
+  audioSource: {fileID: 0}
+--- !u!114 &5560905291349613040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5560905291349613035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01c51b6f46de9546ab187ae4684040d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Phone: {fileID: 0}
+  PhoneScreen: {fileID: 2633749899807701563}
+  DocuMessage: {fileID: 2100000, guid: eebca563e27602d44a224685f5c59850, type: 2}
+  SendDocuMessage: 0
+  StartBuzzingScript: {fileID: 5560905291349613037}
 --- !u!23 &5572018510397145509
 MeshRenderer:
   m_ObjectHideFlags: 0

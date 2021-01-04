@@ -42,4 +42,12 @@ public class PhoneTimer : MonoBehaviour
             }
         }
     }
+    void OnEnable()
+    {
+        audioSource.Play();
+        timer = 0;
+        Buzzing = true;
+        TimerIsRunning = true;
+        Debug.Log("PhoneTimer has been enabled");
+    }
 }
