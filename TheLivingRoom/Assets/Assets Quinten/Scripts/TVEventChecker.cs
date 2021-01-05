@@ -1,47 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class TVEventChecker : MonoBehaviour
 {
-    public GameObject waterDrop;
-    AudioSource _audioSource;
-    Animator _animator;
+    public GameObject Television;
 
-    public bool StartTV = false;
-
-    public bool startAnimation = true;
+    private VideoPlayer video;
+    private bool allreadyPlayed;
 
     // Start is called before the first frame update
     void Start()
     {
-        _animator = waterDrop.GetComponent<Animator>();
-        _audioSource = waterDrop.GetComponent<AudioSource>();
-        Debug.Log(_animator);
-        Debug.Log(_audioSource);
+        video = Television.GetComponent<VideoPlayer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (EventManager.PickedUpPhone1 == true && EventManager.TurnedOfFaucet1 == true)
+        if (EventManager.PickedUpPhone2 && EventManager.TurnedOfFaucet1 && EventManager.TurnedOnTelevision && !allreadyPlayed)
         {
-            _audioSource.mute = true;
-            waterDrop.gameObject.GetComponent<Animator>().enabled = false;
-            waterDrop.transform.position = new Vector3((float)-6.7308, (float)1.06548, (float)4.09794);
-        }
-
-        if (EventManager.SentBathroomMessage == true && EventManager.TurnedOfFaucet2 == true)
-        {
-            _audioSource.mute = true;
-            waterDrop.gameObject.GetComponent<Animator>().enabled = true;
-        }
-    }
-
-    public void disableDripping()
-    {
-        if (EventManager.FirstMessageSent == true)
-            EventManager.TurnedOfFaucet1 = true;
+            allreadyPlayed = true;
+            video.Play();
+        }        
     }
 
     public void startTVMethode()

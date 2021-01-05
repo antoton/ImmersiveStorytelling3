@@ -48,13 +48,13 @@ public class PhoneEventChecker : MonoBehaviour
         }
         if (EventManager.TurnedOnTelevision == true && WaitForBathroomMessage == false)
         {
-            timer = 0;
+            timer = 30f;
             WaitForBathroomMessage = true;
         }
         if (WaitForBathroomMessage == true && SentBathroomMessage == false)
         {
             timer += Time.deltaTime;
-            if (timer >= 60f)
+            if (timer >= 100f)
             {
                 SentBathroomMessage = true;
                 WaitForBathroomMessage = false;
