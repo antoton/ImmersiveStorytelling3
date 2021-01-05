@@ -11,6 +11,7 @@ public class LightSwitchingOnOff : MonoBehaviour
     public float AmountFlashes = 5;
     bool LightOn = true;
     public float timer = 0;
+    public Behaviour FlashingScript;
     
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,14 @@ public class LightSwitchingOnOff : MonoBehaviour
     {
         if (IsActive)
         {
+            if (EventManager.BangingOnWindow)
+            {
+                light.range = 6;
+                light.intensity = 6;
+                light.color = Color.red;
+                this.enabled = false;
+                FlashingScript.enabled = true;
+            }
             if (EventManager.InteractedWithBathroomHandle)
             {
                 timer += Time.deltaTime;
