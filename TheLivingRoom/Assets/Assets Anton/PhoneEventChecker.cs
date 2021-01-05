@@ -35,7 +35,7 @@ public class PhoneEventChecker : MonoBehaviour
             StartBuzzingScript.enabled = true;
         }
 
-        if(EventManager.TurnedOfFaucet1 == true && SentDocuMessage == false)
+        if(EventManager.TurnedOfFaucet1 == true && SentDocuMessage == false && firstMessageSet == true)
         {
             SentDocuMessage = true;
             Material[] newMaterials = { PhoneScreen.materials[0], DocuMessage };

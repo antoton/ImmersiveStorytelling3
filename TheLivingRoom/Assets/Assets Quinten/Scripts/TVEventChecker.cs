@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterdropEventChecker : MonoBehaviour
+public class TVEventChecker : MonoBehaviour
 {
     public GameObject waterDrop;
     AudioSource _audioSource;
     Animator _animator;
+
+    public bool StartTV = false;
 
     public bool startAnimation = true;
 
@@ -38,7 +40,13 @@ public class WaterdropEventChecker : MonoBehaviour
 
     public void disableDripping()
     {
-        if (EventManager.PickedUpPhone1 == true)
+        if (EventManager.FirstMessageSent == true)
             EventManager.TurnedOfFaucet1 = true;
+    }
+
+    public void startTVMethode()
+    {
+        if (EventManager.PickedUpPhone2 == true)
+            EventManager.TurnedOnTelevision = true;
     }
 }
