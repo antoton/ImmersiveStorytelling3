@@ -15,8 +15,9 @@ public static class EventManager
     public static bool TurnedOnTelevision = false; //True when the Documentary is turned on. Sends new message after X time.
     public static bool SentBathroomMessage = false; //True when the BathroomMessage is sent. 
     public static bool TurnedOfFaucet2 = false; //True when faucet is turned of for the second time, afterwards needs to randomly start making the noise in 1 ear.
-    public static bool PickedUpPhone3 = false; //True when read the BathroomMessage, silhouette starts apppearing
-    public static bool InteractedWithBathroomHandle = false; //True when Interacted with bathroomhandle AFTER silhouette starts appearing
+    public static bool PickedUpPhone3 = false; //True when read the BathroomMessage
+    public static bool InteractedWithBathroomHandle = false; //True when Interacted with bathroomhandle Silhouette starts appearing. 
+    public static bool SentNeighboursMessage = false; //True after X seconds after interactedwithBathroomHandle
     public static bool PickedUpPhone4 = false; //True when the Check Neighbours/FrontDoor message is read. This + Playerlocation starts audio behind the door and next flag 
     public static bool HeardNeighbours = false; //True X seconds after the neighbour audio clip started playing. Triggers new phone message
     public static bool PickedUpPhone5 = false; //True after the Don't Get Your Feet Wet Message. Water starts leaking and glasses start appearing on the floor?

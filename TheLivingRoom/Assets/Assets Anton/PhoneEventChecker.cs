@@ -20,8 +20,11 @@ public class PhoneEventChecker : MonoBehaviour
     bool WaitForBathroomMessage = false;
     bool SentNeighboursMessage = false;
     bool SentWindowMessage = false;
+    bool startedLoop = false;
 
     public Behaviour StartBuzzingScript;
+    public Behaviour StartLoopingScript;
+    public Behaviour ChangeAudioProperties;
     float timer = 0;
 
     // Update is called once per frame
@@ -61,14 +64,21 @@ public class PhoneEventChecker : MonoBehaviour
                 Material[] newMaterials = { PhoneScreen.materials[0], BathroomMessage };
                 PhoneScreen.materials = newMaterials;
                 StartBuzzingScript.enabled = true;
+                timer = 0f;
             }
         }
         if (EventManager.InteractedWithBathroomHandle == true && SentNeighboursMessage == false)
         {
-            SentNeighboursMessage = true;
-            Material[] newMaterials = { PhoneScreen.materials[0], NeighboursMessage };
-            PhoneScreen.materials = newMaterials;
-            StartBuzzingScript.enabled = true;
+            timer += Time.deltaTime;
+            if (timer >= 60f)
+            {
+                SentNeighboursMessage = true;
+                Material[] newMaterials = { PhoneScreen.materials[0], NeighboursMessage };
+                PhoneScreen.materials = newMaterials;
+                StartBuzzingScript.enabled = true;
+                EventManager.SentNeighboursMessage = true; 
+            }
+            
         }
         if (EventManager.HeardNeighbours == true && SentWindowMessage == false)
         {
@@ -77,7 +87,14 @@ public class PhoneEventChecker : MonoBehaviour
             PhoneScreen.materials = newMaterials;
             StartBuzzingScript.enabled = true;
         }
-
+        if (EventManager.BangingOnWindow == true && startedLoop == false)
+        {
+            StartLoopingScript.enabled = true;
+            startedLoop = true;
+            ChangeAudioProperties.enabled = true;
+            StartBuzzingScript.enabled = false;
+            this.enabled = false;
+        }
 
 
     }
