@@ -1036,7 +1036,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &459800788
 MonoBehaviour:
@@ -1530,7 +1530,7 @@ Transform:
   - {fileID: 1987331582}
   - {fileID: 982003401}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &627331219
 GameObject:
@@ -2730,7 +2730,6 @@ GameObject:
   - component: {fileID: 1278592413}
   - component: {fileID: 1278592412}
   - component: {fileID: 1278592414}
-  - component: {fileID: 1278592415}
   m_Layer: 0
   m_Name: BathroomLight
   m_TagString: Untagged
@@ -2811,7 +2810,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1278592414
 MonoBehaviour:
@@ -2831,6 +2830,7 @@ MonoBehaviour:
   FlashingTimer: 5
   AmountFlashes: 5
   timer: 0
+  FlashingScript: {fileID: 0}
 --- !u!1 &1335710859
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,10 +3444,10 @@ MonoBehaviour:
   m_ActivateUsage: 3
   m_UIPressUsage: 3
   m_AxisToPressThreshold: 0.1
-  m_RotateAnchorLeft: 16
-  m_RotateAnchorRight: 17
-  m_MoveObjectIn: 14
-  m_MoveObjectOut: 15
+  m_RotateAnchorLeft: 0
+  m_RotateAnchorRight: 0
+  m_MoveObjectIn: 0
+  m_MoveObjectOut: 0
   m_PoseProvider: {fileID: 0}
 --- !u!114 &1543756381
 MonoBehaviour:
@@ -4106,7 +4106,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1670565060
 GameObject:
@@ -4648,10 +4648,10 @@ MonoBehaviour:
   m_ActivateUsage: 3
   m_UIPressUsage: 3
   m_AxisToPressThreshold: 0.1
-  m_RotateAnchorLeft: 16
-  m_RotateAnchorRight: 17
-  m_MoveObjectIn: 14
-  m_MoveObjectOut: 15
+  m_RotateAnchorLeft: 0
+  m_RotateAnchorRight: 0
+  m_MoveObjectIn: 0
+  m_MoveObjectOut: 0
   m_PoseProvider: {fileID: 0}
 --- !u!114 &1754135835
 MonoBehaviour:
