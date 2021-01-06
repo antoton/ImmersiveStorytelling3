@@ -59,6 +59,7 @@ public class PhoneEventChecker : MonoBehaviour
             timer += Time.deltaTime;
             if (timer >= 100f)
             {
+                EventManager.SentBathroomMessage = true;
                 SentBathroomMessage = true;
                 EventManager.SentBathroomMessage = true;
                 WaitForBathroomMessage = false;

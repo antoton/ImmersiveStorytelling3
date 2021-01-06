@@ -9,6 +9,7 @@ public class TVEventChecker : MonoBehaviour
 
     private VideoPlayer video;
     private bool allreadyPlayed;
+    private 
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,11 @@ public class TVEventChecker : MonoBehaviour
         {
             allreadyPlayed = true;
             video.Play();
-        }        
+        }
+        if (EventManager.BangingOnWindow)
+        {
+            video.Play();
+        }
     }
 
     public void startTVMethode()

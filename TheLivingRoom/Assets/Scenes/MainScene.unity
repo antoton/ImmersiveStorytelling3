@@ -3534,10 +3534,10 @@ MonoBehaviour:
   m_ActivateUsage: 3
   m_UIPressUsage: 3
   m_AxisToPressThreshold: 0.1
-  m_RotateAnchorLeft: 16
-  m_RotateAnchorRight: 17
-  m_MoveObjectIn: 14
-  m_MoveObjectOut: 15
+  m_RotateAnchorLeft: 0
+  m_RotateAnchorRight: 0
+  m_MoveObjectIn: 0
+  m_MoveObjectOut: 0
   m_PoseProvider: {fileID: 0}
 --- !u!114 &1543756381
 MonoBehaviour:
@@ -4738,10 +4738,10 @@ MonoBehaviour:
   m_ActivateUsage: 3
   m_UIPressUsage: 3
   m_AxisToPressThreshold: 0.1
-  m_RotateAnchorLeft: 16
-  m_RotateAnchorRight: 17
-  m_MoveObjectIn: 14
-  m_MoveObjectOut: 15
+  m_RotateAnchorLeft: 0
+  m_RotateAnchorRight: 0
+  m_MoveObjectIn: 0
+  m_MoveObjectOut: 0
   m_PoseProvider: {fileID: 0}
 --- !u!114 &1754135835
 MonoBehaviour:
@@ -9439,6 +9439,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sphere
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462844246342512722, guid: 463965e255d389a4d8b59a5904fe1ea5,
+        type: 3}
+      propertyPath: m_TagString
+      value: WaterDrop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 463965e255d389a4d8b59a5904fe1ea5, type: 3}
