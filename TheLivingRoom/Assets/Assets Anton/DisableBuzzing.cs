@@ -9,10 +9,13 @@ public class DisableBuzzing : MonoBehaviour
     // Start is called before the first frame update
     public void DisableBuzz()
     {
-        Behaviour bhv = (Behaviour)Phone.GetComponent("PhoneTimer");
-        bhv.enabled = false;
-        audioSource.Stop();
-        CheckForEvents();
+        if (!EventManager.BangingOnWindow)
+        {
+            Behaviour bhv = (Behaviour)Phone.GetComponent("PhoneTimer");
+            bhv.enabled = false;
+            audioSource.Stop();
+            CheckForEvents();
+        }
     }
     public void CheckForEvents()
     {
@@ -28,7 +31,7 @@ public class DisableBuzzing : MonoBehaviour
         {
             EventManager.PickedUpPhone3 = true;
         }
-        if(EventManager.InteractedWithBathroomHandle == true)
+        if(EventManager.SentNeighboursMessage == true)
         {
             EventManager.PickedUpPhone4 = true;
         }

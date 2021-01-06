@@ -20,7 +20,6 @@ public class PhoneWaitForFirstMessage : MonoBehaviour
         if (EventManager.FirstMessageSent == false)
         {
             timer += Time.deltaTime;
-            Debug.Log(timer);
             if (timer >= WaitTime)
             {
                 EventManager.FirstMessageSent = true;

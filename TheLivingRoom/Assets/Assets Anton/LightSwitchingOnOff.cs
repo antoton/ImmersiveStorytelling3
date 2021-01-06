@@ -9,8 +9,9 @@ public class LightSwitchingOnOff : MonoBehaviour
     public float DarkTimer = 30;
     public float FlashingTimer = 5;
     public float AmountFlashes = 5;
-    bool LightOn = false;
+    bool LightOn = true;
     public float timer = 0;
+    public Behaviour FlashingScript;
     
     // Start is called before the first frame update
     void Start()
@@ -23,33 +24,36 @@ public class LightSwitchingOnOff : MonoBehaviour
     {
         if (IsActive)
         {
-            timer += Time.deltaTime;
-            if (!LightOn)
+            if (EventManager.BangingOnWindow)
             {
-                if (timer >= DarkTimer)
-                {
-                    LightOn = true;
-                    timer = 0;
-                }
+                light.range = 6;
+                light.intensity = 6;
+                light.color = Color.red;
+                this.enabled = false;
+                FlashingScript.enabled = true;
             }
-            else
+            if (EventManager.InteractedWithBathroomHandle)
             {
-                if (timer >= FlashingTimer)
+                timer += Time.deltaTime;
+                if (!LightOn)
                 {
-                    LightOn = false;
-                    timer = 0;
-                    light.range = 0;
+                    if (timer >= DarkTimer)
+                    {
+                        LightOn = true;
+                        timer = 0;
+                    }
                 }
                 else
                 {
-                    for (float i = 1; i <= AmountFlashes; i++)
+                    if (timer >= FlashingTimer)
                     {
-                        if ((i-0.1f) < timer && timer < (i+0.1f))
-                        {
-                            light.range = 0;
-                            Debug.Log("should be dark now");
-                        }
-                        else light.range = 4;
+                        LightOn = false;
+                        timer = 0;
+                        light.range = 0;
+                    }
+                    else
+                    {
+                        light.range = 4;
                     }
                 }
             }
