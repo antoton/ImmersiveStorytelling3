@@ -34,6 +34,11 @@ public class WaterdropEventChecker : MonoBehaviour
             _audioSource.mute = true;
             waterDrop.gameObject.GetComponent<Animator>().enabled = true;
         }
+        if (EventManager.SentBathroomMessage && EventManager.TurnedOnTelevision)
+        {
+            _audioSource.mute = false;
+            waterDrop.gameObject.GetComponent<Animator>().enabled = true;
+        }
     }
 
     public void disableDripping()

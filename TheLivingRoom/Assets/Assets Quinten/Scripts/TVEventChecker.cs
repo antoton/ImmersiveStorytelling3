@@ -7,13 +7,21 @@ public class TVEventChecker : MonoBehaviour
 {
     public GameObject Television;
 
+    //private GameObject waterDrop;
+    //private Animator _animator;
+    //private AudioSource _audioSource;
     private VideoPlayer video;
     private bool allreadyPlayed;
+    private 
 
     // Start is called before the first frame update
     void Start()
     {
         video = Television.GetComponent<VideoPlayer>();
+
+        //waterDrop = GameObject.FindWithTag("WaterDrop");
+        //_animator = waterDrop.GetComponent<Animator>();
+        //_audioSource = waterDrop.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,7 +31,7 @@ public class TVEventChecker : MonoBehaviour
         {
             allreadyPlayed = true;
             video.Play();
-        }        
+        }                
     }
 
     public void startTVMethode()
