@@ -855,7 +855,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450176724}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94583dcdd0646c344ab8dcab23a34bc4, type: 3}
   m_Name: 
@@ -864,7 +864,7 @@ MonoBehaviour:
   mute: 0
   loop: 1
   Volume: 0.139
-  Pitch: -0.26
+  Pitch: 0.85
   StereoPan: 0
   SpatialBlend: 1
 --- !u!114 &450176732
@@ -8798,7 +8798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13abc04cb0591a848989994842d7a9ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DontWait: 0
+  DontWait: 1
   WaitTime: 60
   timer: 0
 --- !u!114 &5560905291349613042
@@ -9540,6 +9540,7 @@ GameObject:
   - component: {fileID: 4703263118157758159}
   - component: {fileID: 559872695809389099}
   - component: {fileID: 7384292856572206129}
+  - component: {fileID: 6629864430870112108}
   - component: {fileID: 6629864430870112106}
   - component: {fileID: 6629864430870112107}
   m_Layer: 0
@@ -9617,6 +9618,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e6dbe8c74dc18418ad8ef3c58eade7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!64 &6629864430870112108
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629864430870112105}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4617538167708492622, guid: 01c6d31aaaab41046bd319dfb5217a14, type: 3}
 --- !u!1 &6646736757622914748
 GameObject:
   m_ObjectHideFlags: 0
