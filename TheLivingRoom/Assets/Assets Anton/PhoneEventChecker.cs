@@ -38,7 +38,7 @@ public class PhoneEventChecker : MonoBehaviour
             StartBuzzingScript.enabled = true;
         }
 
-        if(EventManager.TurnedOfFaucet1 == true && SentDocuMessage == false)
+        if(EventManager.TurnedOfFaucet1 == true && SentDocuMessage == false && firstMessageSet == true)
         {
             SentDocuMessage = true;
             Material[] newMaterials = { PhoneScreen.materials[0], DocuMessage };
@@ -51,13 +51,13 @@ public class PhoneEventChecker : MonoBehaviour
         }
         if (EventManager.TurnedOnTelevision == true && WaitForBathroomMessage == false)
         {
-            timer = 0;
+            timer = 30f;
             WaitForBathroomMessage = true;
         }
         if (WaitForBathroomMessage == true && SentBathroomMessage == false)
         {
             timer += Time.deltaTime;
-            if (timer >= 60f)
+            if (timer >= 100f)
             {
                 SentBathroomMessage = true;
                 WaitForBathroomMessage = false;
