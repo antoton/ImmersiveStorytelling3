@@ -7830,6 +7830,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3472279662485921599}
+  - component: {fileID: 3472279662486152620}
   m_Layer: 0
   m_Name: P_Lamp
   m_TagString: Untagged
@@ -7837,6 +7838,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3472279662486152620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472279662486152619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c370462b60d7f438f1c4267e1cdb9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainLamp: {fileID: 1335710859}
 --- !u!23 &3472279662488074695
 MeshRenderer:
   m_ObjectHideFlags: 0
