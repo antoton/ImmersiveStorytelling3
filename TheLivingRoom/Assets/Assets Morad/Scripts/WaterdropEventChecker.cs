@@ -43,7 +43,9 @@ public class WaterdropEventChecker : MonoBehaviour
 
     public void disableDripping()
     {
-        if (EventManager.PickedUpPhone1 == true)
+        if (EventManager.PickedUpPhone1)
             EventManager.TurnedOfFaucet1 = true;
+        if (EventManager.SentBathroomMessage)
+            EventManager.TurnedOfFaucet2 = true;
     }
 }
