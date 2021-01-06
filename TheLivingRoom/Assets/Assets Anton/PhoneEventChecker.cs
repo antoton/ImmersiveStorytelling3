@@ -61,6 +61,7 @@ public class PhoneEventChecker : MonoBehaviour
             {
                 EventManager.SentBathroomMessage = true;
                 SentBathroomMessage = true;
+                EventManager.SentBathroomMessage = true;
                 WaitForBathroomMessage = false;
                 Material[] newMaterials = { PhoneScreen.materials[0], BathroomMessage };
                 PhoneScreen.materials = newMaterials;
