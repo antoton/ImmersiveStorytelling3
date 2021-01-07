@@ -89,8 +89,30 @@ In order to actively start the experience, we ask the players to look up to the 
 We achieved this with a simple script that checks the player's rotation, and moves the player the moment the condition is achieved. The necessary scripts are enabled and sounds are unmuted.
 The player starts in an almost empty copy of the actual room, with no scripts or actively running components. The moment the player is moved to the actual room, the fake room gets destroyed.
 
+    public class IntroScript : MonoBehaviour
+    {
+    public GameObject XRRig;
+    public GameObject Phone;
+    public GameObject Camera;
+    public GameObject WaterDrop;
+
+    void Update()
+    {
+        if(Camera.transform.rotation.eulerAngles.x <310 && Camera.transform.rotation.eulerAngles.x > 200)
+        {
+            XRRig.transform.position = XRRig.transform.position + new Vector3(10,0,0);
+            Behaviour bhv = (Behaviour)Phone.GetComponent("PhoneWaitForFirstMessage");
+            bhv.enabled = true;
+            AudioSource AS = (AudioSource)WaterDrop.GetComponent<AudioSource>();
+            AS.mute = false;
+            Destroy(this.gameObject);
+        }
+    }
+    }
+
 # Event Manager
 For the entire story sequence, we use an EventManager - a singleton - to follow-up each event with a new event that progresses the game. This uses multiple states and connects all the different elements the user experiences with eachother. These elements all use private booleans that have a default 'false'-value and only change to 'true' if the user has interacted with this element at the correct time and in a correct way.
+
     public static class EventManager
     {
     #region GameFlags
@@ -104,7 +126,7 @@ For the entire story sequence, we use an EventManager - a singleton - to follow-
     ETCETERA. Game version has more flags.
     //Always make sure that your script always checked if it has already run as well, to make sure it doesn't start looping for no reason. 
     #endregion
-}
+    }
 
 ## Waterdrop
 For the waterdrop, we added an animation that loops and makes it look as if the faucet is leaking. With this a dripping sound is included. When the user selects the top bit of the water tap, both the animation as the sounds are stopped with the help of a script called waterDropEventChecker. This script checks if certain events have been triggered that need to be triggered and changes the state of the waterdrop if everything checks out. So the user gets the opportunity to stop the leaking faucet, but eventually, this isn't possible anymore to initiate the ending.
