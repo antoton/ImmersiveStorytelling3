@@ -133,3 +133,27 @@ For the waterdrop, we added an animation that loops and makes it look as if the 
 
 ## Phone
 The leading role during the entire game is assigned to the phone. This element is used as a story scaffolder and pushes the user forward and causes him/her to explore the room and to progress within the story. This element also uses the previous mentioned event manager and changes it's message based on the current state.
+
+# How to hand
+For the VR hands i follow the tutorial on youtube from "Valem"
+
+part 1: https://www.youtube.com/watch?v=gGYtahQjmWQ
+
+part 2: https://www.youtube.com/watch?v=VdT0zMcggTQ
+
+
+
+
+I didn't do everything, because he also adds the models of the controllers them self and some other functions.
+I only add models for the hand and the animation for it. You can pay for hand models but there are some free models to.
+The guy from the video gives you a ZIP white the model and the animation.
+
+The first stap for the hands is the script. In the script "HandPresense" is the code for the hands.
+The script search for the controller and adds hand model and the animation to the object. This script has also a UpdateHandAnimator and Update functions. The UpdateHandAnimator will change the value of 2 variables in the object HandAnimator, Grip and Trigger.
+
+The next thing you need to do is the animation. In the ZIP that Zalem gives you are some animations. 1 for when you push the trigger and 1 for when you push the grip button. you need to create a New animation object and connect the animations with the wright values.
+(Dont forget to do this twice, one for the right hand and one for the left hand )
+
+When you did all of this you can put your sript on your XR hands (1 on the left hand and 1 on the right hand). No dragg and drop you hand model in the right variable. Do this also for the animation (left for the left controller, right for the right controller)
+
+after this your done (check part 2 of youtube video for a beter explanation)
