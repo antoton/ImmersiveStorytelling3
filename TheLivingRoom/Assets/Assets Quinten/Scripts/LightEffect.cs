@@ -36,6 +36,7 @@ public class LightEffect : MonoBehaviour
                 }
                 else if (!MainLamp.activeSelf && (secondTimer >= TimerFlash))
                 {
+
                     MainLamp.SetActive(true);
                     timeslightHasFlash++;
                     secondTimer = 0;
