@@ -91,6 +91,20 @@ The player starts in an almost empty copy of the actual room, with no scripts or
 
 # Event Manager
 For the entire story sequence, we use an EventManager - a singleton - to follow-up each event with a new event that progresses the game. This uses multiple states and connects all the different elements the user experiences with eachother. These elements all use private booleans that have a default 'false'-value and only change to 'true' if the user has interacted with this element at the correct time and in a correct way.
+    public static class EventManager
+    {
+    #region GameFlags
+    //bool Started = true
+    public static bool FirstMessageSent = false;
+    public static bool PickedUpPhone1 = false; //True when read the Fix Faucet message
+    public static bool TurnedOfFaucet1 = false; //True when turned the faucet of the first time
+    public static bool PickedUpPhone2 = false; //True when read the See Documentary message
+    public static bool TurnedOnTelevision = false; //True when the Documentary is turned on. Sends new message after X time.
+    
+    ETCETERA. Game version has more flags.
+    //Always make sure that your script always checked if it has already run as well, to make sure it doesn't start looping for no reason. 
+    #endregion
+}
 
 ## Waterdrop
 For the waterdrop, we added an animation that loops and makes it look as if the faucet is leaking. With this a dripping sound is included. When the user selects the top bit of the water tap, both the animation as the sounds are stopped with the help of a script called waterDropEventChecker. This script checks if certain events have been triggered that need to be triggered and changes the state of the waterdrop if everything checks out. So the user gets the opportunity to stop the leaking faucet, but eventually, this isn't possible anymore to initiate the ending.
