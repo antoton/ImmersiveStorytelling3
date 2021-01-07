@@ -45,7 +45,7 @@ public class PhoneEventChecker : MonoBehaviour
             PhoneScreen.materials = newMaterials;
             StartBuzzingScript.enabled = true;
         }
-        if(EventManager.TurnedOfFaucet1 == false)
+        if(EventManager.TurnedOfFaucet1 == false && EventManager.PickedUpPhone1 == true)
         {
             ResendMessage(60f);
         }
