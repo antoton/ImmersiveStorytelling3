@@ -11,7 +11,7 @@ public class IntroScript : MonoBehaviour
 
     void Update()
     {
-        if(Camera.transform.rotation.eulerAngles.x <300 && Camera.transform.rotation.eulerAngles.x > 200)
+        if(Camera.transform.rotation.eulerAngles.x <310 && Camera.transform.rotation.eulerAngles.x > 200)
         {
             XRRig.transform.position = XRRig.transform.position + new Vector3(10,0,0);
             Behaviour bhv = (Behaviour)Phone.GetComponent("PhoneWaitForFirstMessage");
