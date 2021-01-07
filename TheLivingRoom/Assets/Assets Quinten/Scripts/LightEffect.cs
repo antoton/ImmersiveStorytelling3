@@ -5,11 +5,14 @@ using UnityEngine;
 public class LightEffect : MonoBehaviour
 {
     public GameObject MainLamp;
-    public float timer = 0;
+    
+    private float timer = 0;
+    private float secondTimer = 0;
+    private int timesLightFlashes = 3;
+    private int timeslightHasFlash = 1;
 
-    float TimerLightOn = 10;
-    float TimerFlash = 1;
-    bool ligtOn = true;
+    float TimerLightOn = 5f;
+    float TimerFlash = .1f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,28 +23,29 @@ public class LightEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (EventManager.FirstMessageSent)
-        //{
-        //    timer += 
-        //}
-
-        //code die ik niet begrijp maar het werkt perfect
-        if (EventManager.BangingOnWindow)
+        if (EventManager.FirstMessageSent)
         {
             timer += Time.deltaTime;
-            if (ligtOn)
+            if (timer >= TimerLightOn)
             {
-                if (timer >= TimerLightOn)
+                secondTimer += Time.deltaTime;
+                if (MainLamp.activeSelf && (secondTimer >= TimerFlash))
                 {
                     MainLamp.SetActive(false);
-                    ligtOn = false;
-
+                    secondTimer = 0;
                 }
-            }
-            else
-            {
-                MainLamp.SetActive(true);
-                ligtOn = true;
+                else if (!MainLamp.activeSelf && (secondTimer >= TimerFlash))
+                {
+                    MainLamp.SetActive(true);
+                    timeslightHasFlash++;
+                    secondTimer = 0;
+                }
+                if (timeslightHasFlash >= timesLightFlashes)
+                {
+                    timer = 0; 
+                    timeslightHasFlash = 0;
+                    TimerLightOn = Random.Range(2.0f, 10.0f);
+                }
             }
         }
     }    
