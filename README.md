@@ -87,4 +87,13 @@ We have used this extensively for our story scaffolding, requiring players to in
 ## View Direction interaction
 In order to actively start the experience, we ask the players to look up to the ceiling. This effectively starts the experience.
 We achieved this with a simple script that checks the player's rotation, and moves the player the moment the condition is achieved. The necessary scripts are enabled and sounds are unmuted.
-The player starts in an almost empty copy of the actual room, with no scripts or actively running components. The moment the player is moved to the actual room, the fake room gets destroyed. 
+The player starts in an almost empty copy of the actual room, with no scripts or actively running components. The moment the player is moved to the actual room, the fake room gets destroyed.
+
+# Event Manager
+For the entire story sequence, we use an EventManager - a singleton - to follow-up each event with a new event that progresses the game. This uses multiple states and connects all the different elements the user experiences with eachother. These elements all use private booleans that have a default 'false'-value and only change to 'true' if the user has interacted with this element at the correct time and in a correct way.
+
+## Waterdrop
+For the waterdrop, we added an animation that loops and makes it look as if the faucet is leaking. With this a dripping sound is included. When the user selects the top bit of the water tap, both the animation as the sounds are stopped with the help of a script called waterDropEventChecker. This script checks if certain events have been triggered that need to be triggered and changes the state of the waterdrop if everything checks out. So the user gets the opportunity to stop the leaking faucet, but eventually, this isn't possible anymore to initiate the ending.
+
+## Phone
+The leading role during the entire game is assigned to the phone. This element is used as a story scaffolder and pushes the user forward and causes him/her to explore the room and to progress within the story. This element also uses the previous mentioned event manager and changes it's message based on the current state.
