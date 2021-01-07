@@ -21077,7 +21077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13abc04cb0591a848989994842d7a9ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DontWait: 1
+  DontWait: 0
   WaitTime: 60
   timer: 0
 --- !u!114 &5560905291349613042
