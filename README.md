@@ -16,7 +16,7 @@ The Project is build with the help of the XR and XR-interaction plugins, as well
 
 The can be installed via the Unity Package Manager (in the Advanced tab).
 
-##XR-Rig
+## XR-Rig
 A player instance for the VR-set can be instantiated by adding a Room-Scale XR-Rig to the scene, removing the original camera if necessary, as well as an XR-Interaction Manager.
 
 For movement, it is necessary to add Locomotion system as a component to the XR-Rig. 
