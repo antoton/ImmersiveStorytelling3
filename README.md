@@ -141,19 +141,46 @@ part 1: https://www.youtube.com/watch?v=gGYtahQjmWQ
 
 part 2: https://www.youtube.com/watch?v=VdT0zMcggTQ
 
+You can find the code in /Assets/Scripts/HandPresence
 
+For the hands you need the models with there animations (you can find them online, some are free for others you need to pay)
+You need to wright a script to find your hand object and connect the models and animation to this
 
+    public bool showController = true;
+    public InputDeviceCharacteristics controllerCharacteristics;
+    public GameObject handmodelPrefab;
 
-I didn't do everything, because he also adds the models of the controllers them self and some other functions.
-I only add models for the hand and the animation for it. You can pay for hand models but there are some free models to.
-The guy from the video gives you a ZIP white the model and the animation.
+    private InputDevice targetDevice;
+    private GameObject spawnedHandModel;
+    private Animator handAnimator;
 
-The first stap for the hands is the script. In the script "HandPresense" is the code for the hands.
-The script search for the controller and adds hand model and the animation to the object. This script has also a UpdateHandAnimator and Update functions. The UpdateHandAnimator will change the value of 2 variables in the object HandAnimator, Grip and Trigger.
+A bool to show are hide your controllers (i didnt use that), a variable to say what controller your using and a variable for what model your using
 
-The next thing you need to do is the animation. In the ZIP that Zalem gives you are some animations. 1 for when you push the trigger and 1 for when you push the grip button. you need to create a New animation object and connect the animations with the wright values.
-(Dont forget to do this twice, one for the right hand and one for the left hand )
+In the start function your gone search for the controllers 
 
-When you did all of this you can put your sript on your XR hands (1 on the left hand and 1 on the right hand). No dragg and drop you hand model in the right variable. Do this also for the animation (left for the left controller, right for the right controller)
+    List<InputDevice> devices = new List<InputDevice>();        
+    InputDevices.GetDevicesWithCharacteristics(controllerCharacteristics, devices);
+    foreach (var item in devices)
+    {
+        Debug.Log(item.name + item.characteristics);
+    }
 
-after this your done (check part 2 of youtube video for a beter explanation)
+and than your gonne connect the handmodels to those controllers and the animation
+
+    spawnedHandModel = Instantiate(handmodelPrefab, transform);
+    handAnimator = spawnedHandModel.GetComponent<Animator>();
+
+The final thing you need to do is change some variable to say witch animation your gone run
+
+    void UpdateHandAnimator()
+    {
+        if (targetDevice.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
+            handAnimator.SetFloat("Trigger", triggerValue);
+        else
+            handAnimator.SetFloat("Trigger", 0);
+
+        if (targetDevice.TryGetFeatureValue(CommonUsages.grip, out float gripValue))
+            handAnimator.SetFloat("Grip", gripValue);
+        else
+            handAnimator.SetFloat("Grip", 0);
+    }
